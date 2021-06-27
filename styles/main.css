@@ -13,21 +13,16 @@ body {
   padding-left: 30px;
 }
 
-a {
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  width: 30%;
-  justify-content: space-around;
-}
-
 .container {
   max-width: 960px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.blog-links {
+  text-decoration: none;
+  list-style: none;
 }
 
 .row {
