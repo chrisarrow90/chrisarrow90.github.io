@@ -1,8 +1,9 @@
 body {
   margin: 0;
+  font-family: Calibri, sans-serif;
 }
 
-header {
+.nav-bar {
   display: flex;
   /* position: fixed; */
   /* width: 100%; */
@@ -16,10 +17,17 @@ a {
   text-decoration: none;
 }
 
-.nav-bar {
+.nav-links {
   display: flex;
   width: 30%;
   justify-content: space-around;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .row {
@@ -61,4 +69,8 @@ a {
 }
 .col-12 {
   width: 100%;
+}
+
+code {
+  background-color: rgba(255, 149, 202, 0.3);
 }

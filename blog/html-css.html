@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Technical Blog - CSS Concepts</title>
+    <meta charset="UTF-8" />
+    <link href="/styles/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/styles/css-demo.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <article>
+        <header>
+          <h1>Technical Blog - CSS Concepts</h1>
+          <h2>Differences between relative, absolute and fixed positioning</h2>
+          <h3><time datetime="2021-06-25">25 June 2021</time></h3>
+        </header>
+
+        <section>
+          <h4>Relative Positioning</h4>
+          <p>
+            When an element is given the property <code>position: relative;</code> it remains
+            positioned according to the normal flow of the document. Initially, nothing will happen
+            unless an offset is applied. To apply an offset, you add the additional property of
+            either <code>top</code>, <code>right</code>, <code>bottom</code> or
+            <code>left</code> with the value representing the offset <em>relative</em> to itself
+            (from it's normal position). The element position remains according to the normal flow
+            of the document. <strong>Note:</strong> The property <code>left</code> does not move the
+            element left, it is the offset value from the left edge (in other words, element will
+            move right)
+          </p>
+
+          <h5>Example</h5>
+          <p>
+            In the example below, box two has been given a relative position and offset values of
+            20px from top and 20px from left. Notice how this has no affect on the position other
+            elements. The offset value is relative to its original position in the normal flow (blue
+            outline)
+          </p>
+          <div class="position-example">
+            <div class="box" id="one">One</div>
+            <div class="box-outline"></div>
+            <div class="box" id="two">Two</div>
+            <div class="box" id="three">Three</div>
+            <div class="box" id="four">Four</div>
+          </div>
+        </section>
+
+        <section>
+          <h4>Absolute Positioning</h4>
+          <p>
+            When <code>position: absolute;</code> is applied to an element, it is removed from the
+            normal document flow. It will be postioned relative to its closet positioned ancestor,
+            if any, otherwise relative to the initial containing block (i.e the html)
+          </p>
+
+          <h5>Example</h5>
+          <p>
+            In the example below, box two has been given an absolute position and offset values of
+            20px from top and 20px from left. The element is removed from the normal flow and the
+            other elements are positioned as if it didn't exist. Since the box is a inside a
+            <code>&lt;div&gt;</code> container with <code>position: relative</code> set on it, the
+            offset value is relative to the edge of that container
+          </p>
+          <div class="position-example">
+            <div class="box" id="one">One</div>
+            <div class="box" id="two-abs">Two</div>
+            <div class="box" id="three">Three</div>
+            <div class="box" id="four">Four</div>
+          </div>
+        </section>
+
+        <section>
+          <h4>Fixed Positioning</h4>
+          <p>
+            When <code>position: fixed;</code> is applied to an element, it is removed from the
+            normal document flow and positioned relative to the initial containing block established
+            by the viewport or browser window. This can be used to create a "floating" element that
+            stays in the same position regardless of scrolling and is useful for navigation bars at
+            the top of a page.
+          </p>
+          <iframe
+            class="fixed-position-example"
+            src="fixed_position_example.html"
+            frameborder="0"
+          ></iframe>
+        </section>
+
+        <section>
+          <h4>Summary</h4>
+          <p>
+            In summary only <strong>relative positioning</strong> keeps element in the normal flow.
+            Using either <strong>absolute</strong> or <strong>fixed</strong> positioning removes the
+            element from the normal flow and other elements will behave as if it didn't exist. You
+            can then position the element how you want including making it overlap with other
+            elements
+          </p>
+          <p>
+            The real difference between <strong>absolute</strong> and <strong>fixed</strong> is an
+            element with an absolute position will positioned relative to it's containing block
+            (nearest positioned ancestor), if there is no positioned ancestor, then the viewport
+            will be the containing block. An element with a fixed position however, remains
+            stationary in the viewport window in all cases and is not affected by scrolling. This is
+            particularly useful for navigation bars.
+          </p>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  /* background: red; */
+  background-image: url(https://placekitten.com/100/100);
+  color: white;
+}
+
+.box-outline {
+  display: inline-block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 3px dashed blue;
+  opacity: 0.2;
+  color: white;
+}
+
+#two {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  /* background: blue; */
+  background-image: url(https://placedog.net/100/100);
+}
+
+#two-abs {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  /* background: blue; */
+  background-image: url(https://placedog.net/100/100);
+}
+
+.position-example {
+  border: 1px solid;
+  width: 450px;
+  height: 200px;
+  position: relative;
+}
+
+.fixed-position-example {
+  width: 500px;
+  height: 200px;
+}
