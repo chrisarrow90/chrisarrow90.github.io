@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Technical Blog - JS Fundamentals</title>
+    <link href="../styles/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../styles/js-dom.css" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav>
+        <a href="../index.html">&lt;&lt; Back to Home</a>
+      </nav>
+      <article>
+        <header>
+          <h1>Technical Blog - JS Fundamentals</h1>
+          <h2><time datetime="2021-06-30">6 July 2021</time></h2>
+        </header>
+        <section>
+          <h3>The difference between HTML and CSS</h3>
+          <p>
+            To explore the difference between HTML and CSS I will use the analogy of a house. HTML
+            can be thought of as the structure or framework of the house. It specifies the makeup of
+            the house, what sections are the hallway, what sections are bedrooms, what section is
+            the kitchen and so on. It also includes the contents of those sections such as a bedroom
+            contains a bed, wardrobe, drawers and maybe a desk.
+          </p>
+          <p>
+            We can drill down even further, a bed is made up of a matress, pillows and a duvet and
+            so on. You can think of these as 'children' of the parent element the 'bed' which is
+            itself a child element of the bedroom, which itself is a child element of the house.
+          </p>
+          <h4>House Represented as HTML elements</h4>
+          <pre>
+<code>&lt;house&gt;
+  &lt;kitchen&gt;
+    &lt;cupboard&gt;
+      &lt;plate /&gt;
+      &lt;cup /&gt;
+    &lt;/cupboard&gt;
+    &lt;sink /&gt;
+  &lt;/kitchen&gt;
+  &lt;bedroom&gt;
+    &lt;bed&gt;
+      &lt;pillow&gt;
+      &lt;duvet&gt;
+    &lt;/bed&gt;
+  &lt;/bedroom&gt;
+&lt;/house&gt;  
+</code></pre>
+          <h4>Website Made up of HTML Elements</h4>
+          <p>
+            Just as above, a web-page is made up of elements, and HTML provides the semantic
+            structure of what is what.
+          </p>
+          <pre>
+<code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta&gt;
+    &lt;title&gt;Webpage Title&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;This is a Heading!&lt;/h1&gt;
+    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+          <p>
+            HTML in itself is pretty boring however. This information is read by the browser which
+            then uses default styles to apply to each element, such as how large should a h1 heading
+            be, what is the font-size of a paragraph, what colour should the text be and the default
+            positioning of these elements. Here is what it looks like:
+          </p>
+          <img class="basic-html-example" src="images/basic_html.jpg" alt="" />
+          <p>Stunning!</p>
+          <p>
+            This is where <strong>CSS</strong> comes in. Back to our house analogy... You can think
+            of CSS as the interior decoration of the house and also the layout. For example CSS
+            would be responsible for the positioning of furniture items in the room, specifying how
+            large each of the rooms should be, the colour of the walls, the brightness of the lights
+            and so on.
+          </p>
+          <p>
+            CSS uses <strong>selectors</strong> to select an element of the HTML, or in our house
+            anology select an item like the bed, a room, carpet etc. And then applies
+            <strong>declarations</strong> to change the appearance of that item. Let's say we want
+            to specify the bed to have a width of 1.2 metres, a height of 2.2 metres, colour of
+            light blue and positioned in the top-left of the bedroom. We would do this as follows:
+          </p>
+          <pre>
+<code>bed {
+  width: 1.2m,
+  height: 2.2m,
+  color: light-blue,
+  top: 0,
+  left: 0  
+}  
+</code></pre>
+          <p>
+            But wait a minute, I hear you say... We might have more than one bed in the house, we
+            don't want all beds to necessarily be in the same position, or have the same colour or
+            width. We can add a <strong>class name</strong> to each of our bed (or HTML elements) to
+            target specific instances of it as shown below.
+          </p>
+          <p>First in the HTML we would specify the following:</p>
+          <pre>
+<code>&lt;bed class="lucys-bed"&gt;
+&lt;/bed&gt;</code></pre>
+          <p>Now we can target that specifc class name in the CSS as follows:</p>
+          <pre>
+<code>.lucys-bed {
+  width: 0.6m,
+  height: 2.2m,
+  color: pink,
+}</code></pre>
+        </section>
+        <section>
+          <h3>Control Flow in JavaScript</h3>
+          <h4>What is Control Flow?</h4>
+          <p>
+            <strong>Control flow</strong> is used to describe the order in which the computer runs
+            or executes the code in your program. In JavaScript this is generally done from top to
+            bottom from the first line to the last, however there are several structures that change
+            control flow such as loops, conditionals and functions.
+          </p>
+          <h4>Conditional Statements</h4>
+          <p>
+            Conditional Statements are used when you need to perform different actions based on
+            different conditions.
+          </p>
+          <p>
+            The most basic conditional statement is an <strong>if statement</strong>. For example,
+            in your house the simple task of answering the door when someone rings the doorbell
+            could be expressed as an if statement:
+          </p>
+          <pre>
+<code>if (doorbellRings) {
+  answerTheDoor();
+}</code></pre>
+          <p>
+            This is great! However, sometimes we may not want to always open the door! It depends
+            who it is that is there. We need a more complex logic than simply opening the door to
+            everyone. For that we can use a combination of nested if statements as well as
+            <strong>if-else</strong> statements when we need a second option:
+          </p>
+          <pre>
+<code>if (doorbellRings) {
+  personAtDoor = whoIsIt();
+  if (personAtDoor == 'Jehova's Witness') {
+    silentlyBackAway();
+  } else {
+    answerTheDoor();
+  }
+}</code></pre>
+          <h4>Loops</h4>
+          <p>
+            Loops allow us to create iterable sections in our code. This allows us to repeat a
+            sequence of steps multiple times until there is nothing left to loop over or a certain
+            condition is met.
+          </p>
+          <p>
+            A simple way to think of a loop is to think of a task you do daily in which you may
+            repeat the steps more than once. For example let us imagine a workout routine at the gym
+            where we have a set exercise (for example, a bicep curl) that we wish to complete for a
+            certain number of "reps" or in programming speak we would call these the "iterations".
+          </p>
+          <p>
+            We could write some pseudo-code for this routine, where each line is a step as follows:
+          </p>
+          <pre>
+<code>let rep number equal 0
+while rep number is less than 10 do the following:
+  perform a bicep curl
+  increase rep number by 1, go back to step (line) 2</code></pre>
+          <p>In JavaScript this could be written with a <strong>while loop</strong> as so:</p>
+          <pre>
+<code>let rep = 0;
+while (rep &lt; 10) {
+  bicepCurl();
+  rep += 1;
+}</code></pre>
+          <p>
+            Let's examine what is happening here... First of all we declare a variable named "rep"
+            and set it to an initial value of 0. Next we create the whlie loop using the keyword
+            "while" followed by the condition in parentheses. In this case we want the loop to keep
+            executing as long as the value for rep is less than 10. We then use the opening curly
+            brace "{" to specify the beginning of a code block which contains the statements we want
+            to execute during the loop. The first statement is performing the action of the bicep
+            curl itself, which I have modelled here as a function. The next step, which is
+            <em>very</em> important is to increase the value of the looping variable otherwise we
+            will end up in an infinite loop! Finally we close off the loop block with the closing
+            curly brace "}". As an aside, you will notice we begin counting at 0 and not 1, which is
+            common in computer programming.
+          </p>
+          <p>
+            When the code executes and comes across the while loop, it will first check the
+            condition statement (in the parentheses) - and provided the condition evaluates as true,
+            the body of the loop (inside the curly braces) will execute line by line until it
+            reaches the end (the closing curly brace), then the condition will be checked again and
+            if it still evaluates as true it will repeat the loop.
+          </p>
+          <p>It could also be written with a <strong>for loop</strong> as so:</p>
+          <pre>
+<code>for (let rep = 0; rep &lt; 10; rep++) {
+  bicepCurl();
+}</code></pre>
+          <p>
+            As you can see this code is more succinct than the while loop. The for loop places the
+            looping variable, the condition statement and the loop variable increment all within the
+            parentheses. The way it works however is exactly the same.
+          </p>
+          <p>
+            Let's take this analogy a bit further.. What if rather than performing just one set of
+            the exercise we want to do multiple sets? For this we can use
+            <strong>nested loops</strong>. Let's look at our pseudo-code first:
+          </p>
+          <pre>
+<code>let set equal 0
+while set number is less than 3 do the following:
+  let rep number equal 0
+  while rep number is less than 10 do the following:
+    perform a bicep curl
+    increase rep number by one, go back to step (line) 4
+  take a rest
+  increase set number by 1, go back to step (line) 2</code></pre>
+          <p>Now as a <strong>while loop</strong>:</p>
+          <pre>
+<code>let set = 0;
+while (set &lt; 3) {
+  let rep = 0;
+  while (rep &lt; 10) {
+    bicepCurl();
+    rep += 1;
+  }
+  takeRest();
+  set += 1;
+}</code></pre>
+          <p>And as a <strong>for loop</strong>:</p>
+          <pre>
+<code>for (let set = 0; set &lt; 3; set++) {
+  for(let rep = 0; rep &lt; 10; rep++) {
+    bicepCurl();
+  }
+  takeRest();
+}</code></pre>
+        </section>
+        <section>
+          <h3>DOM - Document Object Model</h3>
+          <p>
+            The DOM is a data representation of the objects that comprise the structure and content
+            of a document on the web.
+          </p>
+          <p>
+            The DOM provides the interface between web pages and programming languages such as
+            JavaScript by representing the structure of a document as a logical tree with each
+            branch of the tree ending in a node and each node containing objects. The DOM is
+            cross-platform and can be used with any programming language.
+          </p>
+          <img src="https://www.w3schools.com/js/pic_htmltree.gif" alt="HTML DOM Tree" />
+          <p>The HTML DOM defines:</p>
+          <ul>
+            <li>The HTML elements as <strong>objects</strong></li>
+            <li>The <strong>properties</strong> of all HTML elements</li>
+            <li>The <strong>methods</strong> to access all HTML elements</li>
+            <li>The <strong>events</strong> for all HTML elements</li>
+          </ul>
+          <p>
+            The real power of the DOM is that through it we can use JavaScript to change the HTML
+            document's structure by adding new HTML elements or deleting existing elements. We can
+            also change it's style by adding/toggling classes on elements to which CSS rules have
+            been defined for or adding inline style attributes directly to those elements. Finally,
+            we also adjust an HTML's content such as changing the text.
+          </p>
+          <p>
+            We can also attach event handlers to nodes to be able to trigger functions that respond
+            to user interaction with the page such as page loads, mouse inputs, button clicks and
+            key presses.
+          </p>
+        </section>
+        <section>
+          <h3>Accessing Data from Arrays and Objects</h3>
+          <h4>Array Acess</h4>
+          <p>
+            The first thing to know about arrays is that the position of each element is referred to
+            as the <strong>index number</strong> with 0 being the index of the first element in the
+            array, 1 being the second element and so on.
+          </p>
+          <p>
+            To access an element of an array we use bracket notation array[i] where i is the index
+            number (position) of the element in the array. For example:
+          </p>
+
+          <pre>
+<code>myArray = ["Dev", "Academy", "Is", "Cool"];
+  
+console.log(myArray[2]);
+// => "Is"</code></pre>
+          <h4>Object Access</h4>
+          <p>
+            The difference between accessing items in an array and items in an object is that
+            objects store name:value pairs which are then accessed using the
+            <strong>name</strong> rather than an index or position. The named values in objects are
+            known as <strong>properties</strong>.
+          </p>
+          <p>Let's look at a simple object representing a person:</p>
+          <pre>
+<code>const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  "eye color": "blue"
+}</code></pre>
+          <p>
+            Some things to note, the property names are actually strings however if it is a single
+            word the quotes may be omitted, like in the case of firstName, lastName and age. However
+            beacause eye color is made up of two words, the string must be wrapped in quotes.
+          </p>
+          <p>
+            To access properties on an object we can either use dot-notation or bracket notation.
+            However dot-notation will only work if the property name is a single word, otherwise
+            bracket notation is required.
+          </p>
+          <pre>
+<code>console.log(person.firstName);
+// => "John"
+
+console.log(person["lastName"]);
+// => Doe
+
+console.log(person.eye color);    // won't work
+
+console.log(person["eye color"]);
+// => "blue"
+</code></pre>
+          <p>Bracket notation is also required to be used when working with variables:</p>
+          <pre>
+<code>let prop = "age";
+console.log(person[prop]);
+// => 50
+</code></pre>
+        </section>
+        <section>
+          <h3>Functions</h3>
+          <p>
+            Functions provide us with a way to structure larger programs and can help reduce
+            repitition. It allows us to break up our code into smaller, more manageable units
+          </p>
+          <h4>Defining a Function</h4>
+          <p>
+            There are multiple ways to define a function. The most basic is a
+            <strong>function definition</strong> (also called a
+            <strong>function declaration</strong>). It consists of the keyword
+            <code>function</code> followed by:
+          </p>
+          <ul>
+            <li>The name of the function</li>
+            <li>
+              A list of parameters to the function, enclosed in parentheses and seaparated by commas
+            </li>
+            <li>
+              The statements which define the function enclosed in curly brackets <code>{...}</code>
+            </li>
+          </ul>
+          <p>
+            The code below is for a simple function that takes a number as an input, and returns the
+            square of that number:
+          </p>
+          <pre>
+<code>function square(x) {
+  return x * x;
+};</code></pre>
+          <p>
+            The above function takes a single <strong>parameter</strong> <em>x</em> which is listed
+            inside the parentheses in the function definition. This parameter behaves like a local
+            variable inside the function body. Now that we have defined the function, we now have to
+            <strong>call</strong> the function. When we call the function, if the function has
+            parameter(s), we pass in values for those parameters as
+            <strong>arguments</strong> inside the parentheses.
+          </p>
+          <pre>
+<code>let result = square(5);
+console.log(result);
+// => 25
+</code></pre>
+          <p>
+            In the above function call we pass in the integer 5 as an argument, the function then
+            squares this number and returns the result which we assign to a variable named 'result'.
+          </p>
+          <p>
+            We can also create functions using a <strong>function expression</strong>. In which we
+            assign a function to a variable, this function can be <strong>anonymous</strong>, it
+            does not have to have a name:
+          </p>
+          <pre>
+<code>const square = function(x) {
+return x * x;
+};</code></pre>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
