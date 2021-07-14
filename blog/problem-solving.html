@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Cultural Blog - Problem Solving</title>
+    <link href="../styles/main.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../styles/js-dom.css" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav>
+        <a href="../index.html">&lt;&lt; Back to Home</a>
+      </nav>
+      <article>
+        <header>
+          <h1>Cultural Blog - Problem Solving</h1>
+          <h2><time datetime="2021-07-14">14 July 2021</time></h2>
+        </header>
+        <section>
+          <h3>Problem Solving</h3>
+          <img
+            src="https://res.cloudinary.com/practicaldev/image/fetch/s--mLKXl35h--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/6lfvu7vdhwvawqze3t57.png"
+            alt=""
+          />
+          <p>
+            As I can't think of a specific situation where I got blocked off the top of my head, I
+            will instead explore the various problem solving techniques useful to programmers.
+          </p>
+          <h4>Understand the Problem</h4>
+          <p>
+            It is too easy to attempt to rush into solving a problem before actually taking the time
+            to fully understand the problem carefully. How do you know when you understand a
+            problem? When you can explain it in plain english.
+          </p>
+          <p>
+            To assist in this process, write down the problem in plain english. Draw a diagram. Tell
+            someone else about it. (Use the RubberDuck method)
+          </p>
+          <h4>Pseudocode</h4>
+          <p>
+            Going hand and hand with understanding the problem is pseudocode. Writing out the
+            problem in pseudocode allows you to break the problem up into a series of steps and
+            write the problem in plain language without getting bogged down in the technicalities or
+            code specific syntax to begin with. This helps you plan out your solution.
+          </p>
+          <p>
+            One of the best ways to write pseudocode is using comments directly in your code. For
+            example, suppose we want to write a function that will take an array of numbers and
+            return a new array of numbers from that array that are even. Our pseudocode might look
+            like this:
+          </p>
+          <pre>
+<code>// function to select even numbers from an array
+  // create an empty array to hold the even numbers
+
+  // for each number in the original array
+    // check to see if number is even
+    // (divisible by 2 with no remainder)
+    // if even add to the array of even numbers
+  // return the array of even numbers</code></pre>
+          <p>We can use this as the basis for writing the code:</p>
+          <pre>
+<code>// function to select even numbers from an array
+function selectEvenNumbers(nums) {
+  // create an empty array to hold the even numbers
+  let evenNums = [];
+  // for each number in the original array
+  nums.forEach(num => {
+    // check to see if number is even 
+    // (divisible by 2 with no remainder)
+    if (num % 2 == 0) {
+      // if even add to the array of even numbers
+      evenNums.push(num);
+    }
+  })
+
+  // return the array of even numbers 
+  return evenNums;</code></pre>
+          <h4>Refactoring</h4>
+          <p>Once you have a workable solution, you can then go back and optimise:</p>
+          <pre>
+<code>let selectEvenNumbers = nums => nums.filter(n => n % 2 == 0);</code></pre>
+          <h4>console.log()</h4>
+          <p>
+            Console log is a very useful tool for debugging. You can place it anywhere inside your
+            code block to check the current values of variables.
+          </p>
+          <h4>Divide and Conquer</h4>
+          <p>
+            Also known as 'reduce the problem' technique, often it is easier to break complex
+            problems down into smaller sub-problems. These sub-problems are much easier to solve.
+            Start with the simplest (the part you know how to solve). Then expand the problem
+            slightly and rewrite your solution to match.
+          </p>
+          <h4>Simplify the Problem</h4>
+          <p>
+            Different than dividing the problem, it is about reducing the scope of the problem.
+            Suppose you are tasked with writing a program to find the third highest number in an
+            array. Start with how would you find the highest number in the array.
+          </p>
+          <h4>Getting Unstuck</h4>
+          <p>
+            Take a deep breath! Go for a walk and get some fresh air. This will allow you to clear
+            your head and maybe you will come up with a fresh idea. Don't just sit their banging
+            your head against the screen.
+          </p>
+          <ul>
+            <li>
+              Debug - Go through your code and try to find where you went wrong. Use console.log and
+              check values of variables.
+            </li>
+            <li>
+              Error Messages - Take the time to read them carefully. Understand what went wrong, why
+              it went wrong and where it went wrong.
+            </li>
+            <li>
+              Reasess - Take a step back. Try look from another perspective. Maybe even delete your
+              code and start again!
+            </li>
+            <li>
+              Research - Highly likely someone has tried to solve the same problem. Start with
+              google or stackoverflow.
+            </li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
